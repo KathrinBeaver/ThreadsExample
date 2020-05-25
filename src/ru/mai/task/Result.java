@@ -8,7 +8,7 @@ public class Result {
 	public Result() {
 	}
 
-	public Result(int allRecords, int validRecords, int invalidRecords, int duplicatesRecords) {
+	public Result(int allRecords, int validRecords) {
 		this.allRecords = allRecords;
 		this.validRecords = validRecords;
 	}
@@ -22,16 +22,8 @@ public class Result {
 		return allRecords;
 	}
 
-	public void setAllRecords(int allRecords) {
-		this.allRecords = allRecords;
-	}
-
 	public int getValidRecords() {
 		return validRecords;
-	}
-
-	public void setValidRecords(int validRecords) {
-		this.validRecords = validRecords;
 	}
 
 	@Override

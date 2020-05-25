@@ -9,7 +9,6 @@ import ru.mai.threadsinterrupt.IncremenatorInterrupt;
 
 import java.io.File;
 import java.util.Arrays;
-import java.util.List;
 
 public class MainThread {
 
@@ -21,9 +20,9 @@ public class MainThread {
 //        simpleThreadsExample();
 //        twoThreadsExample();
 
-//        File currentDir = new File("");
-//        ValidationExecutor validationExecutor = new ValidationExecutor(Arrays.asList(currentDir.listFiles()), 3);
-//        Result result = validationExecutor.start();
+        File currentDir = new File("");
+        ValidationExecutor validationExecutor = new ValidationExecutor(Arrays.asList(currentDir.listFiles()), 3);
+        Result result = validationExecutor.start();
 
         System.out.println("Главный поток запущен");
         System.out.println("Количество параметров = " + args.length);
@@ -32,7 +31,6 @@ public class MainThread {
 
         if (args.length > 0) {
             if (args[0].equals("0")) {
-//               Test test = new Test();
                 Thread firstThread = new Thread(new TestThread());
                 firstThread.start();
             } else if (args[0].equals("1")) {
@@ -54,7 +52,7 @@ public class MainThread {
                         System.out.println("Побочный поток завершён...");
                     }
                 });
-//                secondThread.setPriority(Thread.MAX_PRIORITY);
+                secondThread.setPriority(Thread.MAX_PRIORITY);
                 secondThread.start();
             } else {
                 System.out.println("Недопустимое значение параметра");
@@ -64,7 +62,7 @@ public class MainThread {
         }
 
         Thread thread3 = new Thread(new TestThread());
-//        thread3.setPriority(Thread.MIN_PRIORITY);
+        thread3.setPriority(Thread.MIN_PRIORITY);
         thread3.start();
 
         int tst = 0;
@@ -93,7 +91,7 @@ public class MainThread {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
-                // Обработка исключения
+                System.out.println("Thread InterruptedException");
             }
 
             System.out.println("Первый");
